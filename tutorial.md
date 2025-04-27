@@ -3,8 +3,19 @@
 ## Preliminary Works
 **Step 0: Install osx | VISAM | Recognize-Anything:**
 ```bash
+export AM_I_DOCKER=False
+export BUILD_WITH_CUDA=True
+# export CUDA_HOME=/path/to/cuda/
+# Install Segment Anything:
+python -m pip install -e segment_anything
 # Install Grounding DINO:
 pip install --no-build-isolation -e GroundingDINO
+# Install diffusers:
+pip install --upgrade diffusers[torch]
+# Install osx:
+git clone https://github.com/xinyu1205/recognize-anything.git
+pip install -r ./recognize-anything/requirements.txt
+pip install -e ./recognize-anything/
 git submodule update --init --recursive
 cd grounded-sam-osx
 # Install RAM & Tag2Text:
